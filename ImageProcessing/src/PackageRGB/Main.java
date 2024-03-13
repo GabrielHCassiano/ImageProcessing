@@ -16,9 +16,8 @@ public class Main {
 		System.out.println("Altura:"+ ImageControl.getHeight(imageBase));
 		System.out.println("Lagura:"+ ImageControl.getWidth(imageBase));
 		System.out.println("Total Pixel:"+ ImageControl.totalPixel(imageBase));
-				
-			ImageControl.displayImage(imagens);
-		
-			ImageControl.saveImage(imagens);
+			
+		ImageControl.displayImage(imagens);
+		ImageControl.saveImage(imagens);
 	}
 }
