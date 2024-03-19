@@ -168,4 +168,95 @@ public class RGBControl {
 		
 		return newImage;
 	}
+	
+	public static BufferedImage BinarizationFilter(BufferedImage image, int thresholding)
+	{		
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		
+		for (int a = 0; a < ImageControl.getWidth(image); a++){
+			for (int l = 0; l < ImageControl.getHeight(image); l++) {
+				Color rgb = new Color(image.getRGB(a, l));
+				Color thresholdingColor = new Color(thresholding, thresholding, thresholding);
+				Color black = new Color(0, 0, 0);
+				
+				if (rgb.getRGB() > thresholdingColor.getRGB())
+				{
+					newImage.setRGB(a, l, rgb.getRGB());
+				}
+				else if (rgb.getRGB() <= thresholdingColor.getRGB())
+				{
+					newImage.setRGB(a, l, black.getRGB());
+				}
+			} 
+		}
+		
+		return newImage;
+	}
+	
+	public static BufferedImage IncreaseTone(BufferedImage image, String  tone, int addTone)
+	{		
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		
+		for (int a = 0; a < ImageControl.getWidth(image); a++){
+			for (int l = 0; l < ImageControl.getHeight(image); l++) {
+				Color rgb = new Color(image.getRGB(a, l));
+				Color toneAdd = rgb;
+				
+				
+				if((tone == "red" || tone == "Red" || tone == "RED"))
+					toneAdd = new Color(Math.min(255, rgb.getRed() + addTone), rgb.getGreen(), rgb.getBlue());
+				else if((tone == "green" || tone == "Green" || tone == "GREEN"))
+					toneAdd = new Color(rgb.getRed(), Math.min(255, rgb.getGreen() + addTone), rgb.getBlue());
+				else if((tone == "blue" || tone == "Blue" || tone == "BLUE"))
+					toneAdd = new Color(rgb.getRed(), rgb.getGreen(), Math.min(255, rgb.getBlue() + addTone));
+				else
+					System.out.print("Error");
+
+				newImage.setRGB(a, l, toneAdd.getRGB());
+			} 
+			
+		}
+		
+		return newImage;
+	}
+	
+	public static BufferedImage BrightnessAdd(BufferedImage image, int brightness)
+	{		
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		
+		for (int a = 0; a < ImageControl.getWidth(image); a++){
+			for (int l = 0; l < ImageControl.getHeight(image); l++) {
+				Color rgb = new Color(image.getRGB(a, l));
+				Color brightnessColor = new Color(Math.min(255, rgb.getRed() + brightness), Math.min(255, rgb.getGreen() + brightness), Math.min(255, rgb.getBlue() + brightness));
+				
+				newImage.setRGB(a, l, brightnessColor.getRGB());
+			} 
+		}
+		
+		return newImage;
+	}
+	
+	public static BufferedImage BrightnessMtt(BufferedImage image, double brightness)
+	{		
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		
+		for (int a = 0; a < ImageControl.getWidth(image); a++){
+			for (int l = 0; l < ImageControl.getHeight(image); l++) {
+				Color rgb = new Color(image.getRGB(a, l));		
+				int red = (int)Math.min(255, rgb.getRed());
+				int green = (int)Math.min(255, rgb.getGreen());
+				int blue = (int)Math.min(255, rgb.getBlue());
+
+				
+				Color brightnessColor = new Color(red, green, blue);
+				
+				newImage.setRGB(a, l, brightnessColor.getRGB());
+			} 
+		}
+		
+		return newImage;
+	}
+	
+	
+	
 }
