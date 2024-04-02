@@ -8,9 +8,9 @@ public class RGBControl {
 	public static void getAllPixel(BufferedImage image)
 	{		
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));
 				System.out.println(rgb);
 			}
 		}
@@ -18,16 +18,16 @@ public class RGBControl {
 	
 	public static BufferedImage updatePixel(BufferedImage image)
 	{		
-		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
 		
 		Color red = new Color(255, 0, 0);
 		Color green = new Color(0, 255, 0);
 		Color blue = new Color(0, 0, 255);
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));
-				newImage.setRGB(a, l, rgb.getRGB());
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));
+				newImage.setRGB(w, h, rgb.getRGB());
 			}
 		}
 		
@@ -42,14 +42,14 @@ public class RGBControl {
 	
 	public static BufferedImage scaleR(BufferedImage image)
 	{		
-		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));
 				Color newRed = new Color(rgb.getRed(), 0, 0);
 				
-				newImage.setRGB(a, l, newRed.getRGB());
+				newImage.setRGB(w, h, newRed.getRGB());
 			}
 		}
 		
@@ -58,14 +58,14 @@ public class RGBControl {
 	
 	public static BufferedImage scaleG(BufferedImage image)
 	{	
-		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));
 				Color newGreen = new Color(0, rgb.getGreen(), 0);
 				
-				newImage.setRGB(a, l, newGreen.getRGB());
+				newImage.setRGB(w, h, newGreen.getRGB());
 			}
 		}
 
@@ -74,14 +74,14 @@ public class RGBControl {
 	
 	public static BufferedImage scaleB(BufferedImage image)
 	{		
-		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));
 				Color newBlue = new Color(0, 0, rgb.getBlue());
 				
-				newImage.setRGB(a, l, newBlue.getRGB());
+				newImage.setRGB(w, h, newBlue.getRGB());
 			}
 		}
 		
@@ -90,14 +90,14 @@ public class RGBControl {
 	
 	public static BufferedImage negativeFilter(BufferedImage image)
 	{		
-		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));
 				Color negativeColor = new Color(255 - rgb.getRed(), 255 - rgb.getGreen(), 255 - rgb.getBlue()); 
 				
-				newImage.setRGB(a, l, negativeColor.getRGB());
+				newImage.setRGB(w, h, negativeColor.getRGB());
 			}
 		}
 		
@@ -106,14 +106,14 @@ public class RGBControl {
 	
 	public static BufferedImage grayScaleR(BufferedImage image)
 	{		
-		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));
 				Color grayRed = new Color(rgb.getRed(), rgb.getRed(), rgb.getRed()); 
 				
-				newImage.setRGB(a, l, grayRed.getRGB());
+				newImage.setRGB(w, h, grayRed.getRGB());
 			}
 		}
 		
@@ -122,14 +122,14 @@ public class RGBControl {
 	
 	public static BufferedImage grayScaleG(BufferedImage image)
 	{		
-		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));
 				Color grayGreen = new Color(rgb.getGreen(), rgb.getGreen(), rgb.getGreen()); 
 				
-				newImage.setRGB(a, l, grayGreen.getRGB());
+				newImage.setRGB(w, h, grayGreen.getRGB());
 			}
 		}
 		
@@ -138,14 +138,14 @@ public class RGBControl {
 	
 	public static BufferedImage grayScaleB(BufferedImage image)
 	{		
-		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));
 				Color grayBlue = new Color(rgb.getBlue(), rgb.getBlue(), rgb.getBlue()); 
 				
-				newImage.setRGB(a, l, grayBlue.getRGB());
+				newImage.setRGB(w, h, grayBlue.getRGB());
 			}
 		}
 		
@@ -154,65 +154,58 @@ public class RGBControl {
 	
 	public static BufferedImage grayScaleFilter(BufferedImage image)
 	{		
-		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));
 				int grayAverage =  (rgb.getRed() + rgb.getGreen() + rgb.getBlue()) / 3; 
 				Color grayScale = new Color(grayAverage, grayAverage, grayAverage); 
 				
-				newImage.setRGB(a, l, grayScale.getRGB());
+				newImage.setRGB(w, h, grayScale.getRGB());
 			} 
 		}
 		
 		return newImage;
 	}
 	
-	public static BufferedImage BinarizationFilter(BufferedImage image, int thresholding)
+	public static BufferedImage binarizationFilter(BufferedImage image, int thresholding)
 	{		
-		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));
-				Color thresholdingColor = new Color(thresholding, thresholding, thresholding);
-				Color black = new Color(0, 0, 0);
-				
-				if (rgb.getRGB() > thresholdingColor.getRGB())
-				{
-					newImage.setRGB(a, l, rgb.getRGB());
-				}
-				else if (rgb.getRGB() <= thresholdingColor.getRGB())
-				{
-					newImage.setRGB(a, l, black.getRGB());
-				}
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));
+				int average = (rgb.getRed() + rgb.getGreen() + rgb.getBlue()) / 3;
+				int color = average > thresholding ? 255 : 0;
+				Color newColor = new Color(color, color, color);
+				newImage.setRGB(w, h, newColor.getRGB());
 			} 
 		}
 		
 		return newImage;
 	}
 	
-	public static BufferedImage IncreaseTone(BufferedImage image, String  tone, int addTone)
+	public static BufferedImage increaseTone(BufferedImage image, String tone, int addTone)
 	{		
-		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		if (!tone.equalsIgnoreCase("Red") && !tone.equalsIgnoreCase("Green") && !tone.equalsIgnoreCase("Blue"))
+			throw new IllegalArgumentException("Error!");
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
+		
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));
 				Color toneAdd = rgb;
 				
-				
-				if((tone == "red" || tone == "Red" || tone == "RED"))
-					toneAdd = new Color(Math.min(255, rgb.getRed() + addTone), rgb.getGreen(), rgb.getBlue());
-				else if((tone == "green" || tone == "Green" || tone == "GREEN"))
-					toneAdd = new Color(rgb.getRed(), Math.min(255, rgb.getGreen() + addTone), rgb.getBlue());
-				else if((tone == "blue" || tone == "Blue" || tone == "BLUE"))
-					toneAdd = new Color(rgb.getRed(), rgb.getGreen(), Math.min(255, rgb.getBlue() + addTone));
+				if(tone.equalsIgnoreCase("Red"))
+					toneAdd = new Color(addColor(rgb.getRed(), addTone), rgb.getGreen(), rgb.getBlue());
+				else if(tone.equalsIgnoreCase("Green"))
+					toneAdd = new Color(rgb.getRed(), addColor(rgb.getGreen(), addTone), rgb.getBlue());
 				else
-					System.out.print("Error");
+					toneAdd = new Color(rgb.getRed(), rgb.getGreen(), addColor(rgb.getBlue(), addTone));
 
-				newImage.setRGB(a, l, toneAdd.getRGB());
+				newImage.setRGB(w, h, toneAdd.getRGB());
 			} 
 			
 		}
@@ -220,43 +213,149 @@ public class RGBControl {
 		return newImage;
 	}
 	
-	public static BufferedImage BrightnessAdd(BufferedImage image, int brightness)
+	public static BufferedImage brightnessAdd(BufferedImage image, int brightness)
 	{		
-		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));
-				Color brightnessColor = new Color(Math.min(255, rgb.getRed() + brightness), Math.min(255, rgb.getGreen() + brightness), Math.min(255, rgb.getBlue() + brightness));
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));
+				Color brightnessColor = new Color(addColor(rgb.getRed(), brightness), addColor(rgb.getGreen(), brightness), addColor(rgb.getBlue(), brightness));
 				
-				newImage.setRGB(a, l, brightnessColor.getRGB());
+				newImage.setRGB(w, h, brightnessColor.getRGB());
 			} 
 		}
 		
 		return newImage;
 	}
 	
-	public static BufferedImage BrightnessMtt(BufferedImage image, double brightness)
+	public static BufferedImage brightnessMtt(BufferedImage image, float brightness)
 	{		
-		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
 		
-		for (int a = 0; a < ImageControl.getWidth(image); a++){
-			for (int l = 0; l < ImageControl.getHeight(image); l++) {
-				Color rgb = new Color(image.getRGB(a, l));		
-				int red = (int)Math.min(255, rgb.getRed());
-				int green = (int)Math.min(255, rgb.getGreen());
-				int blue = (int)Math.min(255, rgb.getBlue());
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));		
+				int red = addColor(rgb.getRed(), brightness);
+				int green = addColor(rgb.getGreen(), brightness);
+				int blue = addColor(rgb.getBlue(), brightness);
 
 				
 				Color brightnessColor = new Color(red, green, blue);
 				
-				newImage.setRGB(a, l, brightnessColor.getRGB());
+				newImage.setRGB(w, h, brightnessColor.getRGB());
 			} 
 		}
 		
 		return newImage;
 	}
 	
+	public static int addColor(int color, int add)
+	{
+		color += add;
+		
+		if(color > 255)
+			color = 255;
+		else if (color < 0)
+			color = 0;
+		
+		return color;
+	}
 	
+	public static int addColor(int color, float add)
+	{
+		color *= add;
+		
+		if(color > 255)
+			color = 255;
+		else if (color < 0)
+			color = 0;
+		
+		return color;
+	}
+	
+	public static int limitColor(float color)
+	{
+		if(color > 255)
+			color = 255;
+		else if (color < 0)
+			color = 0;
+		
+		return (int)color;
+	}
+	
+	public static float[][][] rgb2yiq(BufferedImage image)
+	{	
+		float[][][] yiq = new float[image.getWidth()][image.getHeight()][3]; 
+		
+		for (int w = 0; w < ImageControl.getWidth(image); w++){
+			for (int h = 0; h < ImageControl.getHeight(image); h++) {
+				Color rgb = new Color(image.getRGB(w, h));		
+				int red = rgb.getRed();
+				int green = rgb.getGreen();
+				int blue = rgb.getBlue();
+				
+				yiq[w][h][0] = (0.299f * red) + (0.587f * green) + (0.114f * blue);
+				yiq[w][h][1] = (0.596f * red) - (0.274f * green) - (0.322f * blue);
+				yiq[w][h][2] = (0.211f * red) - (0.523f * green) + (0.312f * blue);
+			} 
+		}
+		
+		return yiq;
+	}
+	
+	public static BufferedImage yiq2rgb(float[][][] yiq)
+	{
+		BufferedImage newImage = new BufferedImage(yiq.length, yiq[0].length, BufferedImage.TYPE_INT_RGB);
+		
+		for (int w = 0; w < yiq.length; w++){
+			for (int h = 0; h < yiq[0].length; h++) {				
+				
+				int red = limitColor((1.000f * yiq[w][h][0]) + (0.956f * yiq[w][h][1]) + (0.621f * yiq[w][h][2]));
+				int green = limitColor((1.000f * yiq[w][h][0]) - (0.272f * yiq[w][h][1]) - (0.647f * yiq[w][h][2]));
+				int blue = limitColor((1.000f * yiq[w][h][0]) - (1.106f * yiq[w][h][1]) + (1.703f * yiq[w][h][2]));
+			
+				Color color = new Color(red, green, blue);
+
+				newImage.setRGB(w, h, color.getRGB());
+			}
+		}
+		
+		return newImage;
+	}
+	
+	public static BufferedImage brightnessAddY(float[][][] yiq, int brightness)
+	{								
+		for (int w = 0; w < yiq.length; w++){
+			for (int h = 0; h < yiq[0].length; h++) {				
+				yiq[w][h][0] += brightness;
+			}
+		}
+		
+		return yiq2rgb(yiq);
+	}
+	
+	public static BufferedImage brightnessMttY(float[][][] yiq, float brightness)
+	{		
+		for (int w = 0; w < yiq.length; w++){
+			for (int h = 0; h < yiq[0].length; h++) {				
+				yiq[w][h][0] *= brightness;
+			}
+		}
+		
+		return yiq2rgb(yiq);
+	}
+	
+
+	public static BufferedImage negativeFilterY(float[][][] yiq)
+	{		
+		for (int w = 0; w < yiq.length; w++){
+			for (int h = 0; h < yiq[0].length; h++) {				
+				yiq[w][h][0] = 255 - yiq[w][h][0];
+			}
+		}
+		
+		return yiq2rgb(yiq);
+	}
 	
 }
