@@ -8,11 +8,26 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		BufferedImage imageBase = ImageControl.loadImage();	
-	
+		
+		float[] kernelGaussian = {0.0625f, 0.125f , 0.0625f, 0.125f , 0.25f, 0.125f , 0.0625f, 0.125f , 0.0625f};
+		int[] kernelHorizontal = {-1, -2, -1, 0, 0, 0, 1, 2, 1};
+		int[] kernelVertical = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
+		int[] kernelLinhaOeste = {1, 1, -1, 1, -2, -1, 1, 1, -1};
+		int[] kernelLaplaciano = {0, -1, 0, -1, 4, -1, 0, -1, 0};
+
+		
 		BufferedImage[] imagens = 
 		{
 		    imageBase,
-		    RGBControl.updatePixel(imageBase),
+		    Local.mediaLocal(imageBase, 7),
+		    Local.medianaLocal(imageBase, 7),
+		    Local.gaussianoLocal(imageBase, kernelGaussian),
+		    Local.convolucao(imageBase, kernelHorizontal),
+		    Local.convolucao(imageBase, kernelVertical),
+		    Local.convolucao(imageBase, kernelLinhaOeste),
+		    Local.convolucao(imageBase, kernelLaplaciano)
+
+		    /*RGBControl.updatePixel(imageBase),
 		    RGBControl.scaleR(imageBase),
 		    RGBControl.scaleG(imageBase),
 		    RGBControl.scaleB(imageBase),
@@ -30,7 +45,8 @@ public class Main {
 		    RGBControl.yiq2rgb(RGBControl.rgb2yiq(imageBase)),
 		    RGBControl.brightnessAddY(RGBControl.rgb2yiq(imageBase), 50),
 		    RGBControl.brightnessMttY(RGBControl.rgb2yiq(imageBase), 0.5f), 
-		    RGBControl.negativeFilterY(RGBControl.rgb2yiq(imageBase))
+		    RGBControl.negativeFilterY(RGBControl.rgb2yiq(imageBase))*/
+		    
 		};
 
 		System.out.println("Altura:"+ ImageControl.getHeight(imageBase));
